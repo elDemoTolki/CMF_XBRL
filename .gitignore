@@ -1,0 +1,6 @@
+.env
+/data
+/logs
+/output/facts_raw.csv
+/output/facts_raw.xlsx
+agent.md

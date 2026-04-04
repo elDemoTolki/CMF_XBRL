@@ -1,0 +1,348 @@
+# concept_map.yaml
+# Mapea conceptos XBRL (ifrs-full / cl-ci) a campos del modelo financiero.
+#
+# Estructura de cada campo:
+#   context_role: qué contexto usar (balance_current | period_current | period_prev_year | balance_prev_year_end)
+#   candidates: lista de conceptos XBRL en orden de prioridad (primer match gana)
+#   negate: true si el valor debe invertir signo (ej: costos reportados como positivos)
+#
+# Contextos disponibles:
+#   balance_current       → CierreTrimestreActual  (instant: fecha de cierre del año)
+#   balance_prev_year_end → SaldoActualInicio       (instant: inicio del año = cierre año anterior)
+#   period_current        → TrimestreAcumuladoActual (duration: año fiscal completo)
+#   period_prev_year      → AnualAnterior            (duration: año anterior comparativo)
+#
+# Nota: siempre consolidado (tipo=C). Campos derivados calculados en normalizer.py:
+#   debt_total   = short_term_borrowings + long_term_borrowings  (fallback: borrowings)
+#   net_debt     = debt_total - cash
+#   fcf          = operating_cf - capex
+#   ebitda       = operating_income + depreciation_amortization  (si no hay valor directo)
+#   operating_expenses = distribution_costs + administrative_expense + other_expense
+
+fields:
+
+  # ── BALANCE — Activos ──────────────────────────────────────────────────────
+
+  assets:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:Assets
+
+  current_assets:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:CurrentAssets
+      - ifrs-full:CurrentAssetsOtherThanAssetsOrDisposalGroupsClassifiedAsHeldForSaleOrAsHeldForDistributionToOwners
+
+  non_current_assets:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:NoncurrentAssets
+
+  cash:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:CashAndCashEquivalents
+      - ifrs-full:CashAndCashEquivalentsIfDifferentFromStatementOfFinancialPosition
+      - ifrs-full:Cash
+
+  trade_receivables:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:TradeAndOtherCurrentReceivables
+      - ifrs-full:TradeReceivables
+      - ifrs-full:CurrentTradeReceivables
+
+  inventories:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:Inventories
+
+  ppe:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:PropertyPlantAndEquipment
+
+  intangibles:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:IntangibleAssetsAndGoodwill
+      - ifrs-full:IntangibleAssetsOtherThanGoodwill
+
+  goodwill:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:Goodwill
+
+  # ── BALANCE — Pasivos ──────────────────────────────────────────────────────
+
+  liabilities:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:Liabilities
+
+  current_liabilities:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:CurrentLiabilities
+      - ifrs-full:CurrentLiabilitiesOtherThanLiabilitiesIncludedInDisposalGroupsClassifiedAsHeldForSale
+
+  non_current_liabilities:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:NoncurrentLiabilities
+
+  short_term_borrowings:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:CurrentBorrowingsAndCurrentPortionOfNoncurrentBorrowings
+      - ifrs-full:ShorttermBorrowings
+      - ifrs-full:CurrentPortionOfLongtermBorrowings
+
+  long_term_borrowings:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:LongtermBorrowings
+      - ifrs-full:NoncurrentPortionOfLongtermBorrowings
+
+  borrowings:  # total deuda financiera (fallback si no hay corto/largo por separado)
+    context_role: balance_current
+    candidates:
+      - ifrs-full:Borrowings
+
+  trade_payables:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:TradeAndOtherCurrentPayables
+      - ifrs-full:TradeAndOtherPayables
+
+  # ── BALANCE — Patrimonio ───────────────────────────────────────────────────
+
+  equity:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:Equity
+      - ifrs-full:NetAssetsLiabilities
+
+  equity_parent:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:EquityAttributableToOwnersOfParent
+
+  minority_interest:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:NoncontrollingInterests
+
+  issued_capital:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:IssuedCapital
+
+  retained_earnings:
+    context_role: balance_current
+    candidates:
+      - cl-ci:GananciaPerdidaAcumulada
+      - ifrs-full:RetainedEarnings
+
+  # ── P&L — Ingresos y costos ───────────────────────────────────────────────
+
+  revenue:
+    context_role: period_current
+    candidates:
+      - ifrs-full:Revenue
+      - ifrs-full:RevenueFromContractsWithCustomers
+      - ifrs-full:SalesAndServiceRevenue
+      - ifrs-full:RevenueFromSaleOfGoods
+      - ifrs-full:RevenueFromRenderingOfServices
+      - cl-ci:RevenuesFromExternalCustomersAndTransactionsWithOtherOperatingSegmentsOfSameEntity
+
+  cost_of_sales:
+    context_role: period_current
+    candidates:
+      - ifrs-full:CostOfSales
+      - ifrs-full:CostOfInventoriesRecognisedAsExpenseDuringPeriod
+
+  gross_profit:
+    context_role: period_current
+    candidates:
+      - ifrs-full:GrossProfit
+
+  # ── P&L — Operación ───────────────────────────────────────────────────────
+
+  distribution_costs:
+    context_role: period_current
+    candidates:
+      - ifrs-full:DistributionCosts
+      - ifrs-full:SellingExpense
+
+  administrative_expense:
+    context_role: period_current
+    candidates:
+      - ifrs-full:AdministrativeExpense
+
+  other_income:
+    context_role: period_current
+    candidates:
+      - ifrs-full:OtherIncome
+      - ifrs-full:OtherGainsLosses
+
+  other_expense:
+    context_role: period_current
+    candidates:
+      - ifrs-full:OtherExpenseByFunction
+      - ifrs-full:OtherExpenseByNature
+
+  employee_benefits:
+    context_role: period_current
+    candidates:
+      - ifrs-full:EmployeeBenefitsExpense
+      - ifrs-full:WagesAndSalaries
+
+  operating_income:
+    context_role: period_current
+    candidates:
+      - ifrs-full:ProfitLossFromOperatingActivities
+      - ifrs-full:ProfitLossFromContinuingOperations
+
+  ebit:
+    context_role: period_current
+    candidates:
+      - ifrs-full:ProfitLossBeforeTax   # fallback razonable cuando no hay EBIT explícito
+
+  # ── P&L — Resultado final ─────────────────────────────────────────────────
+
+  finance_income:
+    context_role: period_current
+    candidates:
+      - ifrs-full:FinanceIncome
+      - ifrs-full:InterestRevenueExpense
+
+  finance_costs:
+    context_role: period_current
+    candidates:
+      - ifrs-full:FinanceCosts
+      - ifrs-full:InterestExpense
+
+  profit_before_tax:
+    context_role: period_current
+    candidates:
+      - ifrs-full:ProfitLossBeforeTax
+
+  income_tax:
+    context_role: period_current
+    candidates:
+      - ifrs-full:IncomeTaxExpenseContinuingOperations
+      - ifrs-full:CurrentTaxExpenseIncome
+
+  net_income:
+    context_role: period_current
+    candidates:
+      - ifrs-full:ProfitLoss
+      - ifrs-full:ProfitLossFromContinuingOperations
+
+  net_income_parent:
+    context_role: period_current
+    candidates:
+      - ifrs-full:ProfitLossAttributableToOwnersOfParent
+
+  # ── Flujo de Caja — Operación ─────────────────────────────────────────────
+
+  operating_cf:
+    context_role: period_current
+    candidates:
+      - ifrs-full:CashFlowsFromUsedInOperatingActivities
+      - ifrs-full:CashFlowsFromUsedInOperations
+
+  depreciation_amortization:
+    context_role: period_current
+    candidates:
+      - ifrs-full:DepreciationAndAmortisationExpense
+      - ifrs-full:DepreciationAmortisationAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss
+      - ifrs-full:DepreciationExpense
+      - ifrs-full:AmortisationExpense
+
+  # ── Flujo de Caja — Inversión ─────────────────────────────────────────────
+
+  capex:
+    context_role: period_current
+    negate: true   # reportado negativo en flujo de inversión → convertir a positivo
+    candidates:
+      - ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities
+      - ifrs-full:PurchaseOfIntangibleAssetsClassifiedAsInvestingActivities
+
+  investing_cf:
+    context_role: period_current
+    candidates:
+      - ifrs-full:CashFlowsFromUsedInInvestingActivities
+
+  # ── Flujo de Caja — Financiamiento ────────────────────────────────────────
+
+  dividends_paid:
+    context_role: period_current
+    candidates:
+      - ifrs-full:DividendsPaidClassifiedAsFinancingActivities
+      - cl-ci:Dividendos
+
+  proceeds_from_borrowings:
+    context_role: period_current
+    candidates:
+      - ifrs-full:ProceedsFromBorrowingsClassifiedAsFinancingActivities
+
+  repayment_of_borrowings:
+    context_role: period_current
+    negate: true   # reportado negativo (salida de caja) → convertir a positivo
+    candidates:
+      - ifrs-full:RepaymentsOfBorrowingsClassifiedAsFinancingActivities
+
+  financing_cf:
+    context_role: period_current
+    candidates:
+      - ifrs-full:CashFlowsFromUsedInFinancingActivities
+
+  # ── Flujo de Caja — Totales ───────────────────────────────────────────────
+
+  net_change_cash:
+    context_role: period_current
+    candidates:
+      - ifrs-full:IncreaseDecreaseInCashAndCashEquivalents
+      - ifrs-full:IncreaseDecreaseInCashAndCashEquivalentsBeforeEffectOfExchangeRateChanges
+
+  # ── Específico Sector Financiero (bancos) ────────────────────────────────
+  # Nota: los bancos en Chile reportan a la SBIF, no al CMF RVEMI IFRS.
+  # Estos conceptos están disponibles solo si el banco publica XBRL IFRS.
+
+  deposits_from_customers:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:DepositsFromCustomers
+      - ifrs-full:DepositsReceivedFromCustomers
+
+  loans_to_customers:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:LoansAndAdvancesToCustomers
+      - ifrs-full:LoansAndReceivables
+
+  # ── Por Acción ────────────────────────────────────────────────────────────
+
+  eps_basic:
+    context_role: period_current
+    candidates:
+      - ifrs-full:BasicEarningsLossPerShare
+      - ifrs-full:BasicEarningsLossPerShareFromContinuingOperations
+      - ifrs-full:BasicAndDilutedEarningsLossPerShare
+
+  eps_diluted:
+    context_role: period_current
+    candidates:
+      - ifrs-full:DilutedEarningsLossPerShare
+      - ifrs-full:DilutedEarningsLossPerShareFromContinuingOperations
+      - ifrs-full:BasicAndDilutedEarningsLossPerShare
+
+  shares_outstanding:
+    context_role: balance_current
+    candidates:
+      - ifrs-full:NumberOfSharesOutstanding
+      - ifrs-full:NumberOfSharesIssuedAndFullyPaid
+      - ifrs-full:NumberOfSharesIssued
