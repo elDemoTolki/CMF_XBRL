@@ -1,0 +1,233 @@
+# concept_map_afp.yaml
+# Mapeo de códigos FECU-IFRS a campos del warehouse para AFPs
+# Basado en los estados financieros FECU de Superintendencia de Pensiones
+
+fields:
+  # ── Balance - Activos ─────────────────────────────────────────
+  assets:
+    code: "11.11.000"
+    table: "balance"
+    description: "Total activos"
+  
+  current_assets:
+    code: "11.11.100"
+    table: "balance"
+    description: "Activos corrientes"
+  
+  non_current_assets:
+    code: "11.11.200"
+    table: "balance"
+    description: "Activos no corrientes"
+  
+  cash:
+    code: "11.11.010.010"
+    table: "balance"
+    description: "Efectivo y equivalentes"
+  
+  trade_receivables:
+    code: "11.11.040.010"
+    table: "balance"
+    description: "Cuentas por cobrar comerciales"
+  
+  other_receivables:
+    code: "11.11.040.090"
+    table: "balance"
+    description: "Otras cuentas por cobrar"
+  
+  ppe:
+    code: "11.11.080.010"
+    table: "balance"
+    description: "Propiedades, planta y equipo"
+  
+  intangibles:
+    code: "11.11.090.010"
+    table: "balance"
+    description: "Activos intangibles"
+  
+  # ── Balance - Pasivos ─────────────────────────────────────────
+  liabilities:
+    code: "20.11.000"
+    table: "balance"
+    description: "Total pasivos"
+  
+  current_liabilities:
+    code: "21.11.000"
+    table: "balance"
+    description: "Pasivos corrientes"
+  
+  non_current_liabilities:
+    code: "22.11.000"
+    table: "balance"
+    description: "Pasivos no corrientes"
+  
+  trade_payables:
+    code: "21.11.040.010"
+    table: "balance"
+    description: "Acreedores comerciales"
+  
+  other_payables:
+    code: "21.11.040.110"
+    table: "balance"
+    description: "Otras cuentas por pagar"
+  
+  # ── Balance - Patrimonio ──────────────────────────────────────
+  equity:
+    code: "25.11.000"
+    table: "balance"
+    description: "TOTAL PATRIMONIO NETO"
+    alternate_code: "60.10.010"
+  
+  # También disponible como 23.11.000 en balance (patrimonio atribuible a accionistas)
+  equity_attr_parent:
+    code: "23.11.000"
+    table: "balance"
+    description: "Total patrimonio atribuible a los accionistas"
+  
+  issued_capital:
+    code: "23.11.010.010"
+    table: "complementarios"
+    description: "Capital pagado"
+  
+  retained_earnings:
+    code: "23.11.040"
+    table: "complementarios"
+    description: "Resultados retenidos"
+  
+  # ── Estado de Resultados (FECU 85.70.xxx) ──────────────────────────────────────
+  fee_income:
+    code: "85.70.010"
+    table: "resultados"
+    description: "Ingresos ordinarios"
+    alternate_code: "71.00.000"
+  
+  # Desglose de comisiones (no disponible en todos los PDFs)
+  fee_mandatory:
+    code: "85.10.010"
+    table: "complementarios"
+    description: "Comisiones por depósito de cotizaciones"
+    alternate_code: "71.10.010"
+  
+  fee_scheduled_withdrawals:
+    code: "85.10.012"
+    table: "complementarios"
+    description: "Comisiones por retiros programados y rentas temporales"
+    alternate_code: "71.10.020"
+  
+  fee_temporary_rent:
+    code: "85.10.012"
+    table: "complementarios"
+    description: "Comisión por rentas temporales"
+    alternate_code: "71.10.030"
+  
+  fee_voluntary_savings:
+    code: "85.10.015"
+    table: "complementarios"
+    description: "Otras comisiones (ahorro voluntario)"
+    alternate_code: "71.10.040"
+  
+  # Otros ingresos
+  other_income:
+    code: "85.70.200"
+    table: "resultados"
+    description: "Otros ingresos distintos de los de operación"
+    alternate_code: "31.11.010.020"
+  
+  # Rentabilidad del Encaje
+  encaje_return:
+    code: "85.70.020"
+    table: "resultados"
+    description: "Rentabilidad del Encaje"
+    alternate_code: "31.11.020"
+  
+  # Gastos
+  employee_benefits:
+    code: "85.70.040"
+    table: "resultados"
+    description: "Gastos de personal"
+    alternate_code: "31.11.040"
+  
+  depreciation_amortization:
+    code: "85.70.050"
+    table: "resultados"
+    description: "Depreciación y amortización"
+    alternate_code: "31.11.050"
+  
+  other_operating_expenses:
+    code: "85.70.090"
+    table: "resultados"
+    description: "Otros gastos varios de operación"
+    alternate_code: "31.11.090"
+  
+  # Resultado
+  profit_before_tax:
+    code: "85.70.220"
+    table: "resultados"
+    description: "Ganancia (Pérdida) antes de Impuesto"
+    alternate_code: "31.11.220"
+  
+  income_tax:
+    code: "85.70.230"
+    table: "resultados"
+    description: "Gasto por impuesto a las ganancias"
+    alternate_code: "31.11.230"
+  
+  net_income:
+    code: "85.70.260"
+    table: "resultados"
+    description: "Ganancia (pérdida) del ejercicio"
+    alternate_code: "31.11.300"
+  
+  # ── Flujo de Caja ─────────────────────────────────────────────
+  cfo:
+    code: "50.11.000"
+    table: "flujo_efectivo"
+    description: "Flujos de efectivo de operaciones"
+  
+  capex:
+    code: "50.20.170"
+    table: "flujo_efectivo"
+    description: "Incorporación de PPE"
+    negate: true
+  
+  investing_cf:
+    code: "50.20.000"
+    table: "flujo_efectivo"
+    description: "Flujos de efectivo de inversión"
+  
+  financing_cf:
+    code: "50.30.000"
+    table: "flujo_efectivo"
+    description: "Flujos de efectivo de financiamiento"
+  
+  net_change_cash:
+    code: "50.40.000"
+    table: "flujo_efectivo"
+    description: "Incremento/decremento neto en efectivo"
+  
+  # ── AFP Específicos ───────────────────────────────────────────
+  contributors:
+    code: "64.00.000"
+    table: "complementarios"
+    description: "Número total de afiliados"
+  
+  # Patrimonio regulado (en UF)
+  regulated_equity_uf:
+    code: "61.00.000"
+    table: "complementarios"
+    description: "Patrimonio neto mantenido expresado en UF"
+  
+  minimum_capital_uf:
+    code: "62.00.000"
+    table: "complementarios"
+    description: "Capital mínimo requerido en UF"
+  
+  capital_surplus_uf:
+    code: "63.00.000"
+    table: "complementarios"
+    description: "Superávit (déficit) de capital en UF"
+  
+  # Encaje (depósito en el Banco Central)
+  encaje:
+    code: "81.10.020"
+    table: "complementarios"
+    description: "Encaje"

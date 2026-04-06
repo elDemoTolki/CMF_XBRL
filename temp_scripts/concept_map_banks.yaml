@@ -1,0 +1,343 @@
+# concept_map_banks.yaml — Mapeo de cuentas CMF SBIF → warehouse para bancos
+# ============================================================================
+# Fuente: API CMF SBIF v3 (api.cmfchile.cl)
+# Endpoint balance:   /api-sbifv3/recursos_api/balances/{year}/{month:02d}/instituciones/{code}
+# Endpoint resultados:/api-sbifv3/recursos_api/resultados/{year}/{month:02d}/instituciones/{code}
+#
+# Estructura de respuesta: { "CodigosBalances": [...] } / { "CodigosEstadosDeResultado": [...] }
+# Cada cuenta: { "CodigoCuenta", "DescripcionCuenta", "MonedaTotal" (formato "1234567,89") }
+#
+# Campos con negate: true → se almacenan como valor positivo (los gastos vienen negativos)
+# Campos con sum_accounts: lista de cuentas que se SUMAN al campo
+
+# ── Balance sheet ─────────────────────────────────────────────────────────────
+balance:
+
+  assets:
+    account: "100000000"
+    description: "TOTAL ACTIVOS"
+
+  liabilities:
+    account: "200000000"
+    description: "TOTAL PASIVOS"
+
+  equity:
+    account: "300000000"
+    description: "PATRIMONIO TOTAL"
+
+  equity_parent:
+    account: "380000000"
+    description: "PATRIMONIO DE LOS PROPIETARIOS"
+
+  cash:
+    account: "105000000"
+    description: "EFECTIVO Y DEPOSITOS EN BANCOS"
+
+  financial_assets:
+    account: "140000000"
+    description: "ACTIVOS FINANCIEROS A COSTO AMORTIZADO (incl. colocaciones e instrumentos)"
+
+  loans_to_customers:
+    account: "144000000"
+    description: "Creditos y cuentas por cobrar a clientes"
+
+  deposits_from_customers:
+    sum_accounts: ["241000000", "242000000"]
+    description: "Depositos a la vista + Depositos a plazo"
+
+  intangibles:
+    account: "160000000"
+    description: "ACTIVOS INTANGIBLES"
+
+  ppe:
+    account: "170000000"
+    description: "ACTIVOS FIJOS"
+
+  issued_capital:
+    account: "310000000"
+    description: "CAPITAL"
+
+  retained_earnings:
+    account: "340000000"
+    description: "UTILIDADES ACUMULADAS DE EJERCICIOS ANTERIORES"
+
+
+# ── Income statement ──────────────────────────────────────────────────────────
+income:
+
+  revenue:
+    account: "550000000"
+    description: "TOTAL INGRESOS OPERACIONALES"
+    note: "Metrica comparable entre bancos. Incluye: ingresos por intereses, comisiones y trading."
+
+  interest_income:
+    account: "411000000"
+    description: "INGRESOS POR INTERESES (gross)"
+
+  interest_expense:
+    account: "412000000"
+    description: "GASTOS POR INTERESES"
+    negate: true
+
+  net_interest_income:
+    account: "520000000"
+    description: "INGRESO NETO POR INTERESES (= interest_income - interest_expense + reajustes)"
+    note: "Numerador principal del NIM. Incluye efecto de reajustes UF/IPC."
+
+  net_fee_income:
+    account: "530000000"
+    description: "INGRESO NETO POR COMISIONES"
+
+  operating_income:
+    account: "570000000"
+    description: "RESULTADO OPERACIONAL ANTES DE PERDIDAS CREDITICIAS"
+    note: "PPOP (Pre-Provision Operating Profit)"
+
+  ebit:
+    account: "580000000"
+    description: "RESULTADO OPERACIONAL (despues de provisiones)"
+
+  credit_loss_expense:
+    account: "470000000"
+    description: "GASTO POR PERDIDAS CREDITICIAS"
+    negate: true
+    note: "Costo del riesgo. Positivo = gasto."
+
+  profit_before_tax:
+    account: "585000000"
+    description: "RESULTADO DE OPERACIONES CONTINUAS ANTES DE IMPUESTOS"
+
+  income_tax:
+    account: "480000000"
+    description: "IMPUESTO A LA RENTA"
+    negate: true
+
+  net_income:
+    account: "590000000"
+    description: "UTILIDAD (PERDIDA) DEL EJERCICIO"
+
+  net_income_parent:
+    account: "594000000"
+    description: "RESULTADO DE LOS PROPIETARIOS"
+
+  employee_benefits:
+    account: "462000000"
+    description: "GASTOS POR OBLIGACIONES DE BENEFICIOS A EMPLEADOS"
+    negate: true
+
+  depreciation_amortization:
+    account: "466000000"
+    description: "DEPRECIACION Y AMORTIZACION"
+    negate: true
+
+  # Alias para compatibilidad con normalized_financials (cruzado con non-financial)
+  finance_income:
+    account: "411000000"
+    description: "Alias de interest_income (para cross-sector joins)"
+
+  finance_costs:
+    account: "412000000"
+    description: "Alias de interest_expense (para cross-sector joins)"
+    negate: true
+
+
+# ── Balance sheet (esquema ANTIGUO pre-2022, codigos 7 digitos, valores en MM CLP) ──
+# Nota: La CMF cambio su plan de cuentas en 2022 (IFRS 9).
+# El esquema antiguo usa codigos 7 digitos; valores en millones CLP (escalar x1e6).
+balance_legacy:
+
+  assets:
+    account: "1000000"
+    description: "ACTIVOS (total)"
+
+  liabilities:
+    account: "2000000"
+    description: "PASIVOS (total)"
+
+  equity_parent:
+    account: "5001000"
+    description: "PATRIMONIO DE LOS PROPIETARIOS"
+
+  cash:
+    account: "1100000"
+    description: "EFECTIVO Y DEPOSITOS EN BANCOS"
+
+  loans_to_customers:
+    account: "1300000"
+    description: "CREDITOS Y CUENTAS POR COBRAR A CLIENTES"
+
+  financial_assets:
+    sum_accounts: ["1150000", "1350000", "1360000"]
+    description: "Instrumentos para negociacion + disponibles venta + hasta vencimiento"
+
+  deposits_from_customers:
+    sum_accounts: ["2100000", "2200000"]
+    description: "Depositos a la vista + Depositos a plazo"
+
+  intangibles:
+    account: "1500000"
+    description: "INTANGIBLES"
+
+  ppe:
+    account: "1600000"
+    description: "ACTIVO FIJO"
+
+  issued_capital:
+    account: "3101000"
+    description: "CAPITAL"
+
+  retained_earnings:
+    account: "3104000"
+    description: "UTILIDADES RETENIDAS"
+
+
+# ── Income statement (esquema ANTIGUO pre-2022, codigos 7 digitos, valores en MM CLP) ──
+income_legacy:
+
+  revenue:
+    account: "5005000"
+    description: "TOTAL INGRESOS OPERACIONALES"
+
+  interest_income:
+    account: "4100000"
+    description: "INGRESOS POR INTERESES Y REAJUSTES"
+
+  interest_expense:
+    account: "4150000"
+    description: "GASTOS POR INTERESES Y REAJUSTES"
+    negate: true
+
+  net_interest_income:
+    account: "5003000"
+    description: "INGRESO NETO POR INTERESES Y REAJUSTES"
+
+  net_fee_income:
+    account: "5004000"
+    description: "INGRESO NETO POR COMISIONES"
+
+  operating_income:
+    account: "5006000"
+    description: "INGRESO OPERACIONAL NETO (antes de provisiones)"
+
+  ebit:
+    account: "5007000"
+    description: "RESULTADO OPERACIONAL"
+
+  credit_loss_expense:
+    account: "4500000"
+    description: "PROVISIONES POR RIESGO DE CREDITO"
+    negate: true
+
+  profit_before_tax:
+    account: "5008000"
+    description: "RESULTADO ANTES DE IMPUESTO A LA RENTA"
+
+  income_tax:
+    account: "4800000"
+    description: "IMPUESTO A LA RENTA"
+    negate: true
+
+  net_income:
+    account: "5010000"
+    description: "UTILIDAD (PERDIDA) CONSOLIDADA DEL EJERCICIO"
+
+  net_income_parent:
+    account: "5020000"
+    description: "RESULTADO DE LOS PROPIETARIOS"
+
+  employee_benefits:
+    account: "4600000"
+    description: "REMUNERACIONES Y GASTOS DEL PERSONAL"
+    negate: true
+
+  depreciation_amortization:
+    account: "4620000"
+    description: "DEPRECIACIONES Y AMORTIZACIONES"
+    negate: true
+
+  finance_income:
+    account: "4100000"
+    description: "Alias de interest_income"
+
+  finance_costs:
+    account: "4150000"
+    description: "Alias de interest_expense"
+    negate: true
+
+
+# ── Campos NO aplicables a bancos (siempre NULL) ──────────────────────────────
+not_applicable:
+  # Balance
+  - current_assets
+  - non_current_assets
+  - current_liabilities
+  - non_current_liabilities
+  - debt_short_term
+  - debt_long_term
+  - borrowings
+  - trade_receivables
+  - inventories
+  - goodwill
+  - trade_payables
+  - minority_interest       # computed: equity - equity_parent
+  # Income
+  - cost_of_sales
+  - gross_profit
+  - distribution_costs
+  - administrative_expense
+  - other_income
+  - other_expense
+  # Cash flow (no disponible en la API bancaria CMF)
+  - cfo
+  - capex
+  - investing_cf
+  - dividends_paid
+  - proceeds_from_borrowings
+  - repayment_of_borrowings
+  - financing_cf
+  - net_change_cash
+  # Per share
+  - eps_basic
+  - eps_diluted
+  - shares_outstanding
+
+
+# ── Metricas derivadas bancarias (calculadas en bank_pipeline.py) ─────────────
+derived:
+
+  nim:
+    formula: "net_interest_income / earning_assets"
+    description: "Net Interest Margin"
+    earning_assets: ["loans_to_customers", "financial_assets"]
+    note: "Denominador = loans_to_customers + financial_assets (promedio idealmente, aqui end-of-year)"
+
+  cost_to_income:
+    formula: "(employee_benefits + depreciation_amortization) / revenue"
+    description: "Ratio de eficiencia operacional"
+    note: "Menor es mejor. < 50% excelente, > 70% preocupante."
+
+  credit_loss_ratio:
+    formula: "credit_loss_expense / loans_to_customers"
+    description: "Costo del riesgo sobre colocaciones"
+    note: "< 1% bajo riesgo, > 3% alto riesgo en ciclo normal."
+
+  loan_to_deposit:
+    formula: "loans_to_customers / deposits_from_customers"
+    description: "Ratio prestamos / depositos (liquidez estructural)"
+
+
+# ── Ratios EXCLUIDOS para bancos ──────────────────────────────────────────────
+excluded_ratios:
+  - debt_to_equity          # deuda financiera no aplica (bancos se fondean con depositos)
+  - debt_to_assets
+  - net_debt_to_ebitda      # sin EBITDA
+  - ebitda_margin           # sin EBITDA
+  - gross_margin            # sin margen bruto
+  - capex_intensity         # sin CAPEX relevante
+  - fcf_margin              # sin FCF
+  - fcf_payout_ratio
+  - cfo_to_net_income
+  - capex_to_da
+  - asset_turnover          # activos bancarios no son "activos productivos" en sentido industrial
+  - inventory_turnover
+  - receivables_turnover

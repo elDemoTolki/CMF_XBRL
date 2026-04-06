@@ -1,0 +1,94 @@
+# config.yaml
+# Configuración centralizada para CMF_XBRL Pipeline
+# =================================================
+
+# API Configuration
+api:
+  cmf_base_url: "https://api.cmfchile.cl/api-sbifv3/recursos_api"
+  # La API key debe ir en .env como CMF_API_KEY
+  rate_limit_seconds: 0.4  # Pausa entre requests para no saturar API
+  timeout_seconds: 30
+  max_retries: 3
+
+# Rango de años por defecto
+years:
+  start: 2010
+  # Si end es null, usa el año actual
+  end: null
+
+# Archivos de entrada/salida
+paths:
+  facts_csv: "output/facts_raw.csv"
+  tickers_json: "tickers_chile.json"
+  concept_map: "concept_map.yaml"
+  concept_map_banks: "concept_map_banks.yaml"
+  nemo_map: "nemo_map.json"
+  db_path: "output/warehouse.db"
+  output_dir: "output"
+
+# Categorías de industria
+industry:
+  financial_categories:
+    - "Banca"
+    - "AFP"
+  # Mapeo de categoría → industria
+  category_mapping:
+    financial: "financial"
+    non_financial: "non_financial"
+
+# Códigos de bancos (CMF)
+banks:
+  # Bancos sin XBRL (default)
+  default_codes:
+    BCI.SN: "016"
+    BSANTANDER.SN: "037"
+    ITAUCL.SN: "039"
+  # Todos los bancos (incluye XBRL)
+  all_codes:
+    CHILE.SN: "001"
+    BICE.SN: "028"
+    BCI.SN: "016"
+    BSANTANDER.SN: "037"
+    ITAUCL.SN: "039"
+
+# Campos críticos para calcular completitud
+quality:
+  critical_fields:
+    - assets
+    - liabilities
+    - equity
+    - cash
+    - revenue
+    - ebit
+    - net_income
+    - cfo
+
+# Configuración de logging
+logging:
+  level: INFO
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  file: null  # Si se especifica, también loguea a archivo
+
+# Configuración de ratios
+ratios:
+  # Límites para detectar outliers
+  reasonable_bounds:
+    roe: [-1.0, 2.0]      # ROE entre -100% y 200%
+    roa: [-0.5, 0.5]      # ROA entre -50% y 50%
+    debt_to_equity: [0, 20]  # D/E entre 0 y 20x
+
+# Configuración SQLite
+sqlite:
+  # Crear índices automáticamente
+  create_indexes: true
+  indexes:
+    - table: normalized_financials
+      columns: [ticker, year]
+    - table: normalized_financials
+      columns: [ticker, year, month]
+    - table: derived_metrics
+      columns: [ticker, year]
+    - table: quality_flags
+      columns: [ticker, year]
+    - table: ratios
+      columns: [ticker, year]

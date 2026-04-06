@@ -1,0 +1,586 @@
+[
+  {
+    "ticker": "AGUAS-A.SN",
+    "name": "Aguas Andinas S.A. (Serie A)",
+    "categoria": "Utilities",
+    "flags": [
+      "regulated",
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "archetype": "cash_cow",
+    "rut": "61808000"
+  },
+  {
+    "ticker": "ANDINA-B.SN",
+    "name": "Embotelladora Andina S.A. (Serie B)",
+    "categoria": "Consumo",
+    "flags": [
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "archetype": "cash_cow",
+    "rut": "91144000"
+  },
+  {
+    "ticker": "CAP.SN",
+    "name": "CAP S.A.",
+    "categoria": "Minería",
+    "flags": [
+      "commodity"
+    ],
+    "rut": "91297000",
+    "cmf_score": 2
+  },
+  {
+    "ticker": "CCU.SN",
+    "name": "Compañía Cervecerías Unidas S.A.",
+    "categoria": "Consumo",
+    "flags": [
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "rut": "90413000"
+  },
+  {
+    "ticker": "CENCOSUD.SN",
+    "name": "Cencosud S.A.",
+    "categoria": "Retail",
+    "flags": [
+      "cyclical"
+    ],
+    "cmf_score": 1,
+    "rut": "93834000"
+  },
+  {
+    "ticker": "CENCOMALLS.SN",
+    "name": "Cencosud Shopping Centers S.A.",
+    "categoria": "Inmobiliario",
+    "flags": [
+      "defensive"
+    ],
+    "rut": "76433310",
+    "cmf_score": 1
+  },
+  {
+    "ticker": "CHILE.SN",
+    "name": "Banco de Chile",
+    "categoria": "Banca",
+    "flags": [
+      "bluechip"
+    ],
+    "cmf_score": 1,
+    "rut": "90331000"
+  },
+  {
+    "ticker": "CMPC.SN",
+    "name": "Empresas CMPC S.A.",
+    "categoria": "Forestal",
+    "flags": [
+      "commodity",
+      "exporter"
+    ],
+    "cmf_score": 1,
+    "rut": "90222000"
+  },
+  {
+    "ticker": "COLBUN.SN",
+    "name": "Colbún S.A.",
+    "categoria": "Energía",
+    "flags": [
+      "regulated"
+    ],
+    "cmf_score": 1,
+    "rut": "96505760"
+  },
+  {
+    "ticker": "COPEC.SN",
+    "name": "Empresas Copec S.A.",
+    "categoria": "Energía",
+    "flags": [
+      "commodity",
+      "exporter"
+    ],
+    "rut": "90690000",
+    "cmf_score": 1
+  },
+  {
+    "ticker": "ECL.SN",
+    "name": "Engie Energía Chile S.A.",
+    "categoria": "Energía",
+    "flags": [
+      "regulated",
+      "defensive"
+    ],
+    "cmf_score": 2,
+    "rut": "88006900"
+  },
+  {
+    "ticker": "ENELAM.SN",
+    "name": "Enel Américas S.A.",
+    "categoria": "Utilities",
+    "flags": [
+      "regulated",
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "archetype": "cash_cow",
+    "rut": "94271000"
+  },
+  {
+    "ticker": "ENELCHILE.SN",
+    "name": "Enel Chile S.A.",
+    "categoria": "Utilities",
+    "flags": [
+      "regulated",
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "rut": "76536353"
+  },
+  {
+    "ticker": "ENTEL.SN",
+    "name": "Empresa Nacional de Telecomunicaciones S.A.",
+    "categoria": "Telecomunicaciones",
+    "flags": [
+      "regulated",
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "rut": "92580000"
+  },
+  {
+    "ticker": "FALABELLA.SN",
+    "name": "Falabella S.A.",
+    "categoria": "Retail",
+    "flags": [
+      "cyclical"
+    ],
+    "rut": "90749000",
+    "cmf_score": 1
+  },
+  {
+    "ticker": "IAM.SN",
+    "name": "Inversiones Aguas Metropolitanas S.A.",
+    "categoria": "Utilities",
+    "flags": [
+      "regulated",
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "archetype": "cash_cow",
+    "rut": "77274820"
+  },
+  {
+    "ticker": "ILC.SN",
+    "name": "Inversiones La Construcción S.A.",
+    "categoria": "Financiero",
+    "flags": [
+      "holding"
+    ],
+    "cmf_score": 2,
+    "rut": "94139000"
+  },
+  {
+    "ticker": "LTM.SN",
+    "name": "LATAM Airlines Group S.A.",
+    "categoria": "Transporte",
+    "flags": [
+      "cyclical"
+    ],
+    "cmf_score": 1,
+    "rut": "89862200"
+  },
+  {
+    "ticker": "MALLPLAZA.SN",
+    "name": "Mall Plaza S.A.",
+    "categoria": "Inmobiliario",
+    "flags": [
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "rut": "76017019"
+  },
+  {
+    "ticker": "PARAUCO.SN",
+    "name": "Parque Arauco S.A.",
+    "categoria": "Inmobiliario",
+    "flags": [
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "rut": "94627000"
+  },
+  {
+    "ticker": "QUINENCO.SN",
+    "name": "Quiñenco S.A.",
+    "categoria": "Holding",
+    "flags": [
+      "holding"
+    ],
+    "cmf_score": 1,
+    "rut": "91705000"
+  },
+  {
+    "ticker": "RIPLEY.SN",
+    "name": "Ripley Corp S.A.",
+    "categoria": "Retail",
+    "flags": [
+      "cyclical"
+    ],
+    "cmf_score": 3,
+    "rut": "99579730"
+  },
+  {
+    "ticker": "SALFACORP.SN",
+    "name": "Salfacorp S.A.",
+    "categoria": "Construcción",
+    "flags": [
+      "cyclical",
+      "speculative"
+    ],
+    "cmf_score": 2,
+    "rut": "96885880"
+  },
+  {
+    "ticker": "SMU.SN",
+    "name": "SMU S.A.",
+    "categoria": "Retail",
+    "flags": [
+      "defensive"
+    ],
+    "cmf_score": 2,
+    "rut": "76012676"
+  },
+  {
+    "ticker": "SQM-B.SN",
+    "name": "Sociedad Química y Minera de Chile (Serie B)",
+    "categoria": "Minería",
+    "flags": [
+      "commodity",
+      "exporter"
+    ],
+    "rut": "93007000",
+    "cmf_score": 2
+  },
+  {
+    "ticker": "CONCHATORO.SN",
+    "name": "Viña Concha y Toro S.A.",
+    "categoria": "Consumo",
+    "flags": [
+      "exporter"
+    ],
+    "cmf_score": 1,
+    "rut": "90227000"
+  },
+  {
+    "ticker": "AAISA.SN",
+    "name": "Adm. Americana de Inversiones S.A.",
+    "categoria": "Utilities",
+    "flags": [
+      "regulated",
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "sa_unreliable": true,
+    "rut": "77513781"
+  },
+  {
+    "ticker": "ANTARCHILE.SN",
+    "name": "Antarchile S.A.",
+    "categoria": "Holding",
+    "flags": [
+      "holding"
+    ],
+    "cmf_score": 2,
+    "rut": "96556310"
+  },
+  {
+    "ticker": "BESALCO.SN",
+    "name": "Besalco S.A.",
+    "categoria": "Construcción",
+    "flags": [
+      "cyclical"
+    ],
+    "cmf_score": 1,
+    "rut": "92434000"
+  },
+  {
+    "ticker": "EMBONOR-B.SN",
+    "name": "Embotelladora Andina Serie B",
+    "categoria": "Consumo",
+    "flags": [
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "rut": "93281000"
+  },
+  {
+    "ticker": "FORUS.SN",
+    "name": "Forus S.A.",
+    "categoria": "Retail",
+    "flags": [
+      "cyclical"
+    ],
+    "cmf_score": 1,
+    "rut": "86963200"
+  },
+  {
+    "ticker": "GASCO.SN",
+    "name": "Energía",
+    "categoria": "Energía",
+    "flags": [
+      "regulated"
+    ],
+    "cmf_score": 3,
+    "rut": "90310000"
+  },
+  {
+    "ticker": "HITES.SN",
+    "name": "Empresas Hites S.A.",
+    "categoria": "Retail",
+    "flags": [
+      "cyclical"
+    ],
+    "cmf_score": 4,
+    "rut": "96947020"
+  },
+  {
+    "ticker": "LIPIGAS.SN",
+    "name": "Empresas Lipigas S.A.",
+    "categoria": "Energía",
+    "flags": [
+      "regulated"
+    ],
+    "cmf_score": 2,
+    "rut": "96928510"
+  },
+  {
+    "ticker": "MASISA.SN",
+    "name": "Masisa S.A.",
+    "categoria": "Forestal",
+    "flags": [
+      "commodity"
+    ],
+    "cmf_score": 5,
+    "rut": "96802690"
+  },
+  {
+    "ticker": "MOLYMET.SN",
+    "name": "Molibdenos y Metales S.A.",
+    "categoria": "Minería",
+    "flags": [
+      "commodity",
+      "exporter"
+    ],
+    "cmf_score": 3,
+    "rut": "93628000"
+  },
+  {
+    "ticker": "PEHUENCHE.SN",
+    "name": "Empresa Eléctrica Pehuenche S.A.",
+    "categoria": "Energía",
+    "flags": [
+      "regulated",
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "archetype": "cash_cow",
+    "rut": "96504980"
+  },
+  {
+    "ticker": "PLANVITAL.SN",
+    "name": "AFP PlanVital S.A.",
+    "categoria": "AFP",
+    "flags": [
+      "regulated"
+    ],
+    "cmf_score": null,
+    "rut": "98001200"
+  },
+  {
+    "ticker": "SOCOVESA.SN",
+    "name": "Socovesa S.A.",
+    "categoria": "Construcción",
+    "flags": [
+      "cyclical"
+    ],
+    "cmf_score": 4,
+    "rut": "94840000"
+  },
+  {
+    "ticker": "SQM-A.SN",
+    "name": "Sociedad Química y Minera de Chile (Serie A)",
+    "categoria": "Minería",
+    "flags": [
+      "commodity",
+      "exporter"
+    ],
+    "rut": "93007000",
+    "cmf_score": 2
+  },
+  {
+    "ticker": "VAPORES.SN",
+    "name": "Compañía Sud Americana de Vapores S.A.",
+    "categoria": "Transporte",
+    "flags": [
+      "cyclical",
+      "exporter"
+    ],
+    "cmf_score": 2,
+    "rut": "90160000"
+  },
+  {
+    "ticker": "AFPCAPITAL.SN",
+    "name": "AFP Capital",
+    "categoria": "AFP",
+    "flags": [
+      "regulated"
+    ],
+    "cmf_score": null,
+    "rut": "98000000"
+  },
+  {
+    "ticker": "HABITAT.SN",
+    "name": "AFP Habitat",
+    "categoria": "AFP",
+    "flags": [
+      "regulated"
+    ],
+    "cmf_score": null,
+    "rut": "98000100"
+  },
+  {
+    "ticker": "ENELGXCH.SN",
+    "name": "Enel Generación Chile",
+    "categoria": "Utilities",
+    "flags": [
+      "regulated",
+      "defensive"
+    ],
+    "cmf_score": 2,
+    "archetype": "cash_cow",
+    "rut": "91081000"
+  },
+  {
+    "ticker": "ZOFRI.SN",
+    "name": "ZOFRI S.A.",
+    "categoria": "Servicios",
+    "flags": [
+      "defensive"
+    ],
+    "cmf_score": 2,
+    "archetype": "cash_cow",
+    "rut": "70285500"
+  },
+  {
+    "ticker": "CAMANCHACA.SN",
+    "name": "Camanchaca S.A.",
+    "categoria": "Pesca",
+    "flags": [
+      "commodity",
+      "speculative"
+    ],
+    "cmf_score": null,
+    "rut": "93711000"
+  },
+  {
+    "ticker": "PAZ.SN",
+    "name": "Paz Corp S.A.",
+    "categoria": "Inmobiliario",
+    "flags": [
+      "cyclical"
+    ],
+    "cmf_score": 3,
+    "rut": "76488180"
+  },
+  {
+    "ticker": "NTGCLGAS.SN",
+    "name": "Naturgy Chile S.A.",
+    "categoria": "Energía",
+    "flags": [
+      "regulated"
+    ],
+    "cmf_score": null,
+    "rut": "76609803"
+  },
+  {
+    "ticker": "ANDINA-A.SN",
+    "name": "Embotelladora Andina S.A. (Serie A)",
+    "categoria": "Consumo",
+    "flags": [
+      "defensive"
+    ],
+    "cmf_score": 1,
+    "archetype": "cash_cow",
+    "rut": "91144000"
+  },
+  {
+    "ticker": "SOQUICOM.SN",
+    "name": "Soquimich Comercial S.A.",
+    "categoria": "Agroindustria",
+    "flags": [
+      "commodity",
+      "exporter"
+    ],
+    "cmf_score": null,
+    "rut": "79768170"
+  },
+  {
+    "ticker": "BCI.SN",
+    "name": "Banco de Crédito e Inversiones",
+    "categoria": "Banca",
+    "flags": [
+      "bluechip"
+    ],
+    "cmf_score": 1,
+    "rut": "97006000"
+  },
+  {
+    "ticker": "BSANTANDER.SN",
+    "name": "Banco Santander Chile",
+    "categoria": "Banca",
+    "flags": [
+      "bluechip"
+    ],
+    "cmf_score": 1,
+    "rut": "97036000"
+  },
+  {
+    "ticker": "ITAUCL.SN",
+    "name": "Banco Itaú Chile",
+    "categoria": "Banca",
+    "flags": [],
+    "cmf_score": 1,
+    "rut": "97023000"
+  },
+  {
+    "ticker": "BICE.SN",
+    "name": "Banco BICE",
+    "categoria": "Banca",
+    "flags": [],
+    "cmf_score": 1,
+    "rut": "85741000"
+  },
+  {
+    "ticker": "CFINRENTAS.SN",
+    "name": "CFI Rentas",
+    "categoria": "Inmobiliario",
+    "flags": ["fondo"],
+    "cmf_score": null,
+    "tipo": "fondo",
+    "cmf_id": "7014-9",
+    "rut": null,
+    "administradora": {"nombre": "Independencia AGF", "rut": "96753330"}
+  },
+  {
+    "ticker": "PROVIDA.SN",
+    "name": "AFP Provida",
+    "categoria": "AFP",
+    "flags": [
+      "regulated"
+    ],
+    "cmf_score": null,
+    "rut": "76265736"
+  }
+]

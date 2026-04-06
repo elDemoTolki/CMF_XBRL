@@ -1,0 +1,292 @@
+{
+  "resolved": [
+    {
+      "ticker": "AGUAS-A.SN",
+      "rut": "61808000",
+      "method": "existing"
+    },
+    {
+      "ticker": "ANDINA-B.SN",
+      "rut": "91144000",
+      "method": "existing"
+    },
+    {
+      "ticker": "CAP.SN",
+      "rut": "91297000",
+      "method": "existing"
+    },
+    {
+      "ticker": "CCU.SN",
+      "rut": "90413000",
+      "method": "existing"
+    },
+    {
+      "ticker": "CENCOSUD.SN",
+      "rut": "93834000",
+      "method": "existing"
+    },
+    {
+      "ticker": "CENCOMALLS.SN",
+      "rut": "76433310",
+      "method": "existing"
+    },
+    {
+      "ticker": "CHILE.SN",
+      "rut": "90331000",
+      "method": "existing"
+    },
+    {
+      "ticker": "CMPC.SN",
+      "rut": "90222000",
+      "method": "existing"
+    },
+    {
+      "ticker": "COLBUN.SN",
+      "rut": "96505760",
+      "method": "existing"
+    },
+    {
+      "ticker": "COPEC.SN",
+      "rut": "90690000",
+      "method": "existing"
+    },
+    {
+      "ticker": "ECL.SN",
+      "rut": "88006900",
+      "method": "existing"
+    },
+    {
+      "ticker": "ENELAM.SN",
+      "rut": "94271000",
+      "method": "existing"
+    },
+    {
+      "ticker": "ENELCHILE.SN",
+      "rut": "76536353",
+      "method": "existing"
+    },
+    {
+      "ticker": "ENTEL.SN",
+      "rut": "92580000",
+      "method": "existing"
+    },
+    {
+      "ticker": "FALABELLA.SN",
+      "rut": "90749000",
+      "method": "existing"
+    },
+    {
+      "ticker": "IAM.SN",
+      "rut": "77274820",
+      "method": "existing"
+    },
+    {
+      "ticker": "ILC.SN",
+      "rut": "94139000",
+      "method": "existing"
+    },
+    {
+      "ticker": "LTM.SN",
+      "rut": "89862200",
+      "method": "existing"
+    },
+    {
+      "ticker": "MALLPLAZA.SN",
+      "rut": "76017019",
+      "method": "existing"
+    },
+    {
+      "ticker": "PARAUCO.SN",
+      "rut": "94627000",
+      "method": "existing"
+    },
+    {
+      "ticker": "QUINENCO.SN",
+      "rut": "91705000",
+      "method": "existing"
+    },
+    {
+      "ticker": "RIPLEY.SN",
+      "rut": "99579730",
+      "method": "existing"
+    },
+    {
+      "ticker": "SALFACORP.SN",
+      "rut": "96885880",
+      "method": "existing"
+    },
+    {
+      "ticker": "SMU.SN",
+      "rut": "76012676",
+      "method": "existing"
+    },
+    {
+      "ticker": "SQM-B.SN",
+      "rut": "93007000",
+      "method": "existing"
+    },
+    {
+      "ticker": "CONCHATORO.SN",
+      "rut": "90227000",
+      "method": "existing"
+    },
+    {
+      "ticker": "AAISA.SN",
+      "rut": "77513781",
+      "method": "existing"
+    },
+    {
+      "ticker": "ANTARCHILE.SN",
+      "rut": "96556310",
+      "method": "existing"
+    },
+    {
+      "ticker": "BESALCO.SN",
+      "rut": "92434000",
+      "method": "existing"
+    },
+    {
+      "ticker": "EMBONOR-B.SN",
+      "rut": "93281000",
+      "method": "existing"
+    },
+    {
+      "ticker": "FORUS.SN",
+      "rut": "86963200",
+      "method": "existing"
+    },
+    {
+      "ticker": "GASCO.SN",
+      "rut": "90310000",
+      "method": "existing"
+    },
+    {
+      "ticker": "HITES.SN",
+      "rut": "96947020",
+      "method": "existing"
+    },
+    {
+      "ticker": "LIPIGAS.SN",
+      "rut": "96928510",
+      "method": "existing"
+    },
+    {
+      "ticker": "MASISA.SN",
+      "rut": "96802690",
+      "method": "existing"
+    },
+    {
+      "ticker": "MOLYMET.SN",
+      "rut": "93628000",
+      "method": "existing"
+    },
+    {
+      "ticker": "PEHUENCHE.SN",
+      "rut": "96504980",
+      "method": "existing"
+    },
+    {
+      "ticker": "PLANVITAL.SN",
+      "rut": "98001200",
+      "method": "existing"
+    },
+    {
+      "ticker": "SOCOVESA.SN",
+      "rut": "94840000",
+      "method": "existing"
+    },
+    {
+      "ticker": "SQM-A.SN",
+      "rut": "93007000",
+      "method": "existing"
+    },
+    {
+      "ticker": "VAPORES.SN",
+      "rut": "90160000",
+      "method": "existing"
+    },
+    {
+      "ticker": "AFPCAPITAL.SN",
+      "rut": "98000000",
+      "method": "existing"
+    },
+    {
+      "ticker": "HABITAT.SN",
+      "rut": "98000100",
+      "method": "existing"
+    },
+    {
+      "ticker": "ENELGXCH.SN",
+      "rut": "91081000",
+      "method": "existing"
+    },
+    {
+      "ticker": "ZOFRI.SN",
+      "rut": "70285500",
+      "method": "existing"
+    },
+    {
+      "ticker": "CAMANCHACA.SN",
+      "rut": "93711000",
+      "method": "existing"
+    },
+    {
+      "ticker": "PAZ.SN",
+      "rut": "76488180",
+      "method": "existing"
+    },
+    {
+      "ticker": "NTGCLGAS.SN",
+      "rut": "76609803",
+      "method": "existing"
+    },
+    {
+      "ticker": "ANDINA-A.SN",
+      "rut": "91144000",
+      "method": "existing"
+    },
+    {
+      "ticker": "SOQUICOM.SN",
+      "rut": "79768170",
+      "method": "existing"
+    }
+  ],
+  "unresolved": [
+    {
+      "ticker": "BCI.SN",
+      "name": "Banco de Crédito e Inversiones",
+      "best_score": 0.3333333333333333,
+      "best_nombre": "MARITIMA DE INVERSIONES S.A."
+    },
+    {
+      "ticker": "BSANTANDER.SN",
+      "name": "Banco Santander Chile",
+      "best_score": 0.25,
+      "best_nombre": "ENEL CHILE S.A."
+    },
+    {
+      "ticker": "ITAUCL.SN",
+      "name": "Banco Itaú Chile",
+      "best_score": 0.25,
+      "best_nombre": "ENEL CHILE S.A."
+    },
+    {
+      "ticker": "BICE.SN",
+      "name": "Banco BICE",
+      "best_score": 0.3333333333333333,
+      "best_nombre": "SECURITIZADORA BICE S.A."
+    },
+    {
+      "ticker": "CFINRENTAS.SN",
+      "name": "CFI Rentas",
+      "best_score": 0.2,
+      "best_nombre": "RENTAS Y DESARROLLO BAKER SPA"
+    },
+    {
+      "ticker": "PROVIDA.SN",
+      "name": "AFP Provida",
+      "best_score": 0.16666666666666666,
+      "best_nombre": "ADMINISTRADORA DE FONDOS DE PENSIONES PROVIDA S.A."
+    }
+  ]
+}
